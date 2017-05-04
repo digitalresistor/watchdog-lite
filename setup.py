@@ -133,8 +133,5 @@ setup(name="watchdog",
           'build_ext': build_ext,
       },
       ext_modules=ext_modules,
-      entry_points={'console_scripts': [
-          'watchmedo = watchdog.watchmedo:main',
-      ]},
       zip_safe=False
 )
