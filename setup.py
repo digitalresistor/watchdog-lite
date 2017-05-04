@@ -63,11 +63,15 @@ if get_platform().startswith('macosx'):
         ),
     ]
 
+install_requires = [
+    'pathtools >=0.1.1'
+]
 
-
-tests_require=['pytest', 'pytest-cov', 'pytest-timeout >=0.3']
-
-install_requires = ['PyYAML >=3.10', 'argh >=0.24.1', 'pathtools >=0.1.1']
+tests_require = [
+    'pytest',
+    'pytest-cov',
+    'pytest-timeout >=0.3'
+]
 
 with open('README.rst') as f:
     readme = f.read()
