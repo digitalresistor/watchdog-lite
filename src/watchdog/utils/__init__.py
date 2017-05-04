@@ -33,10 +33,9 @@ Classes
 import os
 import sys
 import threading
-import watchdog.utils.platform
-from collections import namedtuple
 from threading import Event
 
+from watchdog.utils import platform
 
 if sys.version_info[0] == 2 and platform.is_windows():
     # st_ino is not implemented in os.stat on this platform
@@ -48,8 +47,8 @@ else:
 
 def has_attribute(ob, attribute):
     """
-    :func:`hasattr` swallows exceptions. :func:`has_attribute` tests a Python object for the
-    presence of an attribute.
+    :func:`hasattr` swallows exceptions. :func:`has_attribute` tests a Python
+    object for the presence of an attribute.
 
     :param ob:
         object to inspect
