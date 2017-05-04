@@ -16,14 +16,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import sys
 import imp
+import sys
 import os.path
 from setuptools import setup, find_packages
 from setuptools.extension import Extension
 from setuptools.command.build_ext import build_ext
-from setuptools.command.test import test as TestCommand
-from distutils.util import get_platform
 
 SRC_DIR = 'src'
 WATCHDOG_PKG_DIR = os.path.join(SRC_DIR, 'watchdog')
@@ -31,7 +29,7 @@ WATCHDOG_PKG_DIR = os.path.join(SRC_DIR, 'watchdog')
 version = imp.load_source('version', os.path.join(WATCHDOG_PKG_DIR, 'version.py'))
 
 ext_modules = []
-if get_platform().startswith('macosx'):
+if sys.platform.startswith('darwin'):
     ext_modules = [
         Extension(
             name='_watchdog_fsevents',
