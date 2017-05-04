@@ -64,18 +64,6 @@ if get_platform().startswith('macosx'):
     ]
 
 
-class PyTest(TestCommand):
-    def finalize_options(self):
-        TestCommand.finalize_options(self)
-        self.test_args = [
-            '--cov=' + SRC_DIR,
-            '--cov-report=term-missing',
-            'tests']
-        self.test_suite = True
-    def run_tests(self):
-        import pytest
-        errno = pytest.main(self.test_args)
-        sys.exit(errno)
 
 tests_require=['pytest', 'pytest-cov', 'pytest-timeout >=0.3']
 if sys.version_info < (2, 7, 0):
@@ -152,7 +140,6 @@ setup(name="watchdog",
       tests_require=tests_require,
       cmdclass={
           'build_ext': build_ext,
-          'test': PyTest,
       },
       ext_modules=ext_modules,
       entry_points={'console_scripts': [
